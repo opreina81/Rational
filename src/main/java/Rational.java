@@ -71,6 +71,7 @@ public class Rational {
                         + rational.getNumerator() * this.getDenominator(),
                 this.getDenominator() * rational.getDenominator()
         );
+
     }
 
     public Rational multiply(Rational rational) {
@@ -124,4 +125,6 @@ public class Rational {
             denominator *= -1;
         }
     }
+
+
 }
