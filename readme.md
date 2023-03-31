@@ -1,18 +1,18 @@
 
 # Запуск
-Необходимо склонировать репозиторий https://github.com/opreina81/QAMobileTinkoff_homework_10.git в свою IDE.
+Необходимо склонировать репозиторий https://github.com/opreina81/Rational.git в свою IDE.
 Например, при работе в IntelliJ IDEA, Вы можете клонировать удаленный репозиторий с экрана приветствия,
 который открывается сразу после запуска IntelliJ IDEA.
 Нажмите Get from VCS в правом верхнем углу.
 В открывшемся диалоговом окне Get from Version Control выберите Git из списка.
-Укажите URL-адрес удаленного репозитория https://github.com/opreina81/QAMobileTinkoff_homework_10.git
+Укажите URL-адрес удаленного репозитория https://github.com/opreina81/Rational.git
 В поле Каталог введите путь к папке, в которой будет создан ваш локальный репозиторий.
 Щелкните Клонировать .
 
 Клонировать репозиторий можно из главного меню:
 В главном меню выберите Git | Клон .
 В открывшемся диалоговом окне Get from Version Control выберите Git из списка.
-Укажите URL-адрес удаленного репозитория https://github.com/opreina81/QAMobileTinkoff_homework_10.git
+Укажите URL-адрес удаленного репозитория https://github.com/opreina81/Rational.git
 В поле Каталог введите путь к папке, в которой будет создан ваш локальный репозиторий.
 Щелкните Клонировать .
 
