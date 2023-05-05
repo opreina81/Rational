@@ -2,7 +2,7 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 
-public class Tests {
+public class TestsOperationsOnNumbers {
     private Rational rational1;
     private Rational rational2;
 
@@ -14,45 +14,8 @@ public class Tests {
 
     @After
     public void afterTest() {
-
         rational1 = null;
         rational2 = null;
-
-    }
-
-    @Test
-    public void testStandardConstructor() {
-        Rational standard = new Rational();
-        assertEquals("Standard constructor returns wrong numerator", 0, standard.getNumerator());
-        assertEquals("Standard constructor returns wrong denominator", 1, standard.getDenominator());
-    }
-
-    @Test
-    public void simplifyMinusesTest() {
-        Rational simplifyMinusesRational = new Rational(3, -5);
-        assertEquals("The constructor returns a negative numerator", -3, simplifyMinusesRational.getNumerator());
-        assertEquals("The constructor returns a positive denominator", 5, simplifyMinusesRational.getDenominator());
-    }
-
-    @Test
-    public void minusToPlusTest() {
-        Rational minusToPlus = new Rational(-120, -133);
-        assertEquals("The constructor returns a positive numerator", 120, minusToPlus.getNumerator());
-        assertEquals("The constructor returns a positive denominator", 133, minusToPlus.getDenominator());
-    }
-
-    @Test
-    public void reduceTest() {
-        Rational reduceRational = new Rational(6, 4);
-        assertEquals("The constructor returns the reduced numerator", 3, reduceRational.getNumerator());
-        assertEquals("The constructor returns the reduced denominator", 2, reduceRational.getDenominator());
-    }
-
-    @Test(expected = ArithmeticException.class)
-    public void zeroDenominatorTest() {
-        Rational zeroDenominator = new Rational(3, 0);
-        assertEquals("The constructor returns standard numerator", 3, zeroDenominator.getNumerator());
-        assertEquals("The denominator is not zero", ArithmeticException.class, ArithmeticException.class);
     }
 
     @Test
@@ -76,7 +39,7 @@ public class Tests {
         assertEquals("the sum of negative and positive, abs(positive)>abs(negative)", rational2.plus(rational1), new Rational(1, 4));
     }
 
-       @Test
+    @Test
     public void plusTest_4() {
         rational1 = new Rational(0, 1);
         rational2 = new Rational(0, 1);
@@ -214,42 +177,83 @@ public class Tests {
     public void lessTest_1() {
         rational1 = new Rational(1, 10);
         rational2 = new Rational(1, 3);
-        assertEquals("less is the second, expected false", rational2.less(rational1), false);
+        assertFalse("less is the second, expected false", rational2.less(rational1));
     }
 
     @Test
     public void lessTest_2() {
         rational1 = new Rational(1, 10);
         rational2 = new Rational(-1, 3);
-        assertEquals("less is the second, expected true", rational2.less(rational1), true);
+        assertTrue("less is the second, expected true", rational2.less(rational1));
     }
 
     @Test
     public void lessTest_3() {
         rational1 = new Rational(-1, 3);
-        rational2 = new Rational(-1, 10);
-        assertEquals("less is the second, expected true", rational2.less(rational1), true);
+        rational2 = new Rational(-1, 2);
+        assertTrue("less is the second, expected true", rational2.less(rational1));
+    }
+
+    @Test
+    public void lessTest_4() {
+        rational1 = new Rational(-1, 3);
+        rational2 = new Rational(-2, 3);
+        assertTrue("less is the second, expected true", rational2.less(rational1));
+    }
+
+    @Test
+    public void lessTest_5() {
+        rational1 = new Rational(1, 3);
+        rational2 = new Rational(2, 3);
+        assertFalse("less is the second, expected false", rational2.less(rational1));
+    }
+
+    @Test
+    public void lessTest_6() {
+        rational1 = new Rational(1, 3);
+        rational2 = new Rational(-2, 3);
+        assertTrue("less is the second, expected true", rational2.less(rational1));
     }
 
     @Test
     public void lessOrEqualTest_1() {
         rational1 = new Rational(1, 2);
         rational2 = new Rational(1, 2);
-        assertEquals("equally, expected true", rational2.lessOrEqual(rational1), true);
+        assertTrue("equally, expected true", rational2.lessOrEqual(rational1));
     }
+
     @Test
     public void lessOrEqualTest_2() {
         rational1 = new Rational(0, 1);
         rational2 = new Rational(0, 1);
-        assertEquals("equally, expected true", rational2.lessOrEqual(rational1), true);
+        assertTrue("equally, expected true", rational2.lessOrEqual(rational1));
     }
 
     @Test
     public void lessOrEqualTest_3() {
         rational1 = new Rational(-1, 3);
         rational2 = new Rational(-1, 3);
-        assertEquals("equally, expected true", rational2.lessOrEqual(rational1), true);
+        assertTrue("equally, expected true", rational2.lessOrEqual(rational1));
     }
 
+    @Test
+    public void lessOrEqualTest_4() {
+        rational1 = new Rational(-1, 3);
+        rational2 = new Rational(-1, 2);
+        assertTrue("less is the second, expected true", rational2.lessOrEqual(rational1));
+    }
 
+    @Test
+    public void lessOrEqualTest_5() {
+        rational1 = new Rational(1, 2);
+        rational2 = new Rational(1, 3);
+        assertTrue("less is the second, expected true", rational2.lessOrEqual(rational1));
+    }
+
+    @Test
+    public void lessOrEqualTest_6() {
+        rational1 = new Rational(1, 3);
+        rational2 = new Rational(-1, 3);
+        assertTrue("less is the second, expected true", rational2.lessOrEqual(rational1));
+    }
 }
