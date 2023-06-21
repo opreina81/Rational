@@ -6,17 +6,6 @@ public class TestsOperationsOnNumbers {
     private Rational rational1;
     private Rational rational2;
 
-    @Before
-    public void initTest() {
-        Rational rational1 = new Rational();
-        Rational rational2 = new Rational();
-    }
-
-    @After
-    public void afterTest() {
-        rational1 = null;
-        rational2 = null;
-    }
 
     @Test
     public void plusTest_1() {
@@ -214,6 +203,12 @@ public class TestsOperationsOnNumbers {
         rational2 = new Rational(-2, 3);
         assertTrue("less is the second, expected true", rational2.less(rational1));
     }
+    @Test
+    public void lessTest_7() {
+        rational1 = new Rational(0, 3);
+        rational2 = new Rational(1, 3);
+        assertTrue("less is the first, expected true", rational2.less(rational1));
+    }
 
     @Test
     public void lessOrEqualTest_1() {
@@ -255,5 +250,19 @@ public class TestsOperationsOnNumbers {
         rational1 = new Rational(1, 3);
         rational2 = new Rational(-1, 3);
         assertTrue("less is the second, expected true", rational2.lessOrEqual(rational1));
+    }
+
+    @Test
+    public void lessOrEqualTest_7() {
+        rational1 = new Rational(1, 3);
+        rational2 = new Rational(0, 3);
+        assertTrue("less is the second, expected true", rational1.lessOrEqual(rational2));
+    }
+
+    @Test
+    public void lessOrEqualTest_8() {
+        rational1 = new Rational(-1, 3);
+        rational2 = new Rational(0, 3);
+        assertTrue("less is the first, expected true", rational1.lessOrEqual(rational2));
     }
 }
