@@ -4,17 +4,6 @@ import static org.junit.Assert.*;
 
 public class TestsCreationOfNumbers {
 
-    private Rational rational1;
-
-    @Before
-    public void initTest() {
-        Rational rational1 = new Rational();
-    }
-
-    @After
-    public void afterTest() {
-        rational1 = null;
-    }
 
     @Test
     public void testStandardConstructor() {
@@ -52,15 +41,19 @@ public class TestsCreationOfNumbers {
     }
 
     @Test
-    public void setNumeratorTest() {
+    public void setNumeratorDenominatorTest() {
+        Rational rational1 = new Rational();
         rational1.setNumerator(1);
-        assertEquals("test of setNumerator", rational1.getNumerator(), 1);
+        assertEquals("test of setNumerator", 1, rational1.getNumerator());
+        rational1.setDenominator(2);
+        assertEquals("test of setDenominator", 2, rational1.getDenominator());
     }
 
-    @Test
-    public void setDenominatorTest() {
-        rational1.setDenominator(2);
-        assertEquals("test of setNumerator", rational1.getDenominator(), 2);
+    @Test(expected = ArithmeticException.class)
+    public void setNullDenominator() {
+        Rational rational1 = new Rational();
+        rational1.setDenominator(0);
+        assertEquals("The denominator is not zero", ArithmeticException.class, ArithmeticException.class);
     }
 
 }
